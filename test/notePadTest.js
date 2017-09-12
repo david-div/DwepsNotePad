@@ -12,34 +12,52 @@ var test = function() {
         console.log('Test failed')
     };
 
-    textField.value = 'a';
+    buttonPresent = function() {
+        if (button) {
+            success();
+        } else {
+            fail();
+        }
+    };
 
-    if (textField.value === 'a') {
-        success();
+    textInput = function() {
+        textField.value = 'a';
+        if (textField.value === 'a') {
+            success();
+        }
     }
 
-    if (button) {
-        success();
-    } else {
-        fail();
-    }
+    textFieldPresent = function() {
+        textField.value = 'a';
+        button.click();
+        if (blogList.innerHTML.includes('a')) {
+            success();
+        } else {
+            fail()
+        }
+    };
 
-    textField.value = 'a';
-    button.click();
-    if (blogList.innerHTML.includes('a')) {
-        success();
-    } else {
-        fail()
-    }
+    postTextFeature = function() {
+        textField.value = 'a';
+        button.click();
+        textField.value = 'b';
+        button.click();
+        if (blogList.innerHTML.includes('a') && blogList.innerHTML.includes('b')) {
+            success();
+        } else {
+            fail()
+        }
+    };
 
-    textField.value = 'a';
-    button.click();
-    textField.value = 'b';
-    button.click();
+    runTests = function() {
+        buttonPresent();
+        textFieldPresent();
+        postTextFeature();
+        textInput()
+    };
 
-    if (blogList.innerHTML.includes('a') && blogList.innerHTML.includes('b')) {
-        success();
-    } else {
-        fail()
-    }
+    runTests()
+
 };
+
+test();
