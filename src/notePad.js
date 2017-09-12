@@ -4,8 +4,18 @@ var textField = document.getElementById('text-field');
 var blogList = document.getElementById('blog-list');
 
 button.addEventListener("click", function(){
-    // blogList.innerHTML = textField.value;
-    var htmlString = '<li>'+ textField.value + '</li>'
+    var shortenedString = shorten(textField.value);
+    var htmlString = '<li>'+ shortenedString + '</li>';
     blogList.insertAdjacentHTML("beforeend", htmlString);
     textField.value = ''
 });
+
+
+shorten = function(string) {
+    if (string.length > 20) {
+        string = string.substr(0,20)+'...';
+        return string
+    } else {
+      return string
+    }
+};

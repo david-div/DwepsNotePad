@@ -7,58 +7,69 @@ var test = function() {
 
 
     var success = function () {
-        console.log('Test passed')
-        testResult.insertAdjacentHTML("beforeend", '<li> Test passed! </li>');
+        console.log("%cTest passed", 'color:green');
+        // testResult.insertAdjacentHTML("beforeend", '<li style="color: green"> Test passed! </li>');
     };
 
     var fail = function () {
-        console.log('Test failed')
-        testResult.insertAdjacentHTML("beforeend", '<li> Test failed! </li>');
+        console.log("%cTest failed", 'color:red');
+        // testResult.insertAdjacentHTML("beforeend", '<li style="color: red"> Test failed! </li>');
     };
 
-    buttonPresent = function() {
-        if (button) {
+    var reset = function() {
+        blogList.innerHTML = ''
+    };
+
+    var testIfTrue = function(argument) {
+        if (argument) {
             success();
         } else {
             fail();
         }
+        reset()
     };
 
-    textInput = function() {
-        textField.value = 'a';
-        if (textField.value === 'a') {
-            success();
-        }
-    }
-
-    textFieldPresent = function() {
-        textField.value = 'a';
+    var inputAndClick = function(text) {
+        textField.value = text;
         button.click();
-        if (blogList.innerHTML.includes('a')) {
-            success();
-        } else {
-            fail()
-        }
     };
 
-    postTextFeature = function() {
+    var buttonPresent = function() {
+        testIfTrue(button);
+    };
+
+    var textInput = function() {
         textField.value = 'a';
-        button.click();
-        textField.value = 'b';
-        button.click();
-        if (blogList.innerHTML.includes('a') && blogList.innerHTML.includes('b')) {
-            success();
-        } else {
-            fail()
-        }
+        testIfTrue(textField.value === 'a');
+    };
+
+    var textFieldPresent = function() {
+        inputAndClick('a');
+        testIfTrue(blogList.innerHTML.includes('a'))
+    };
+
+    var postTextFeature = function() {
+        inputAndClick('a');
+        inputAndClick('b');
+        testIfTrue(blogList.innerHTML.includes('a') && blogList.innerHTML.includes('b'))
+    };
+
+    var abbreviationTest = function() {
+        str = 'Hello, this string is over 20 characters long!';
+        inputAndClick(str);
+        shortenedStr = 'Hello, this string i';
+        appendedStr = "Hello, this string i" + '...';
+        testIfTrue(blogList.innerHTML.includes(appendedStr));
     };
 
     runTests = function() {
         buttonPresent();
         textFieldPresent();
         postTextFeature();
-        textInput()
+        textInput();
+        abbreviationTest()
     };
+
     runTests()
 
 };
