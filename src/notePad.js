@@ -1,9 +1,9 @@
-//circle example
 
-(function(exports) {
-  function Circle() {
-    this.radius = 10;
-  };
+var button = document.getElementById('submit-button');
+var textField = document.getElementById('text-field');
+var blogList = document.getElementById('blog-list');
 
-  exports.Circle = Circle;
-})(this);
+button.addEventListener("click", function(){
+    blogList.innerHTML = textField.value;
+    textField.value = ''
+});
