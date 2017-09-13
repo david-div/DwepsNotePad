@@ -1,52 +1,10 @@
+
 var test = function() {
-
-  var addInput = function(parentId, elementTag, elementId, html) {
-    var container = document.getElementById('parent');
-    var input = document.createElement('input');
-    input.setAttribute('type', 'text');
-    input.setAttribute('id', 'textField');
-    container.appendChild(input);
-  };
-  addInput();
-
-  var addButton = function(parentId, elementTag, elementId, html) {
-    var container = document.getElementById('parent');
-    var button = document.createElement('button');
-    button.setAttribute('id', 'submit-button');
-    button.innerHTML = "submit";
-    container.appendChild(button);
-  };
-  addButton();
-
-  var addblogList = function(parentId, elementTag, elementId, html) {
-    var container = document.getElementById('parent');
-    var blogList = document.createElement('ul');
-    blogList.setAttribute('id', 'blog-list');
-    container.appendChild(blogList);
-  };
-  addblogList();
 
   var button = document.getElementById('submit-button');
   var textField = document.getElementById('textField');
   var blogList = document.getElementById('blog-list');
   var testResult = document.getElementById('testResult');
-
-  button.addEventListener("click", function(){
-      var shortenedString = shorten(textField.value);
-      var htmlString = '<li>'+ shortenedString + '</li>';
-      blogList.insertAdjacentHTML("beforeend", htmlString);
-      textField.value = ''
-  });
-
-  shorten = function(string) {
-      if (string.length > 20) {
-          string = string.substr(0,20)+'...';
-          return string
-      } else {
-        return string
-      }
-  };
-
 
   var success = function () {
     console.log("%cTest passed", 'color:green');
@@ -117,19 +75,3 @@ var test = function() {
 };
 
 test();
-
-function removeInput(elementId) {
-  var input = document.getElementById('textField');
-  input.parentNode.removeChild(input);
-}
-removeInput();
-function removeButton(elementId) {
-  var button = document.getElementById('submit-button');
-  button.parentNode.removeChild(button);
-}
-removeButton();
-function removeBloglist(elementId) {
-  var bloglist = document.getElementById('blog-list');
-  bloglist.parentNode.removeChild(bloglist);
-}
-removeBloglist();
