@@ -4,6 +4,7 @@ var test = function() {
     var textField = document.getElementById('text-field');
     var blogList = document.getElementById('blog-list');
     var testResult = document.getElementById('testResult');
+    var fullNote = document.getElementById('full-note');
 
 
     var success = function () {
@@ -26,7 +27,7 @@ var test = function() {
         } else {
             fail();
         }
-        reset()
+        // reset()
     };
 
     var inputAndClick = function(text) {
@@ -62,12 +63,20 @@ var test = function() {
         testIfTrue(blogList.innerHTML.includes(appendedStr));
     };
 
+    var addsNewButtonWithId = function(){
+        var string = 'any string more than 20 characters'
+        inputAndClick(string);
+        document.getElementById('note5').click
+        testIfTrue(fullNote.innerHTML.includes(string))
+    }
+
     runTests = function() {
         buttonPresent();
         textFieldPresent();
         postTextFeature();
         textInput();
-        abbreviationTest()
+        abbreviationTest();
+        addsNewButtonWithId();
     };
 
     runTests()
