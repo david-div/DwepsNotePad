@@ -1,6 +1,6 @@
 
 var button = document.getElementById('submit-button');
-var textField = document.getElementById('text-field');
+var textField = document.getElementById('textField');
 var blogList = document.getElementById('blog-list');
 
 button.addEventListener("click", function(){
@@ -9,7 +9,6 @@ button.addEventListener("click", function(){
     blogList.insertAdjacentHTML("beforeend", htmlString);
     textField.value = ''
 });
-
 
 shorten = function(string) {
     if (string.length > 20) {
