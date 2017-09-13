@@ -1,9 +1,53 @@
+var addInput = function(parentId, elementTag, elementId, html) {
+
+  var container = document.getElementById('parent');
+  var input = document.createElement('input');
+  input.setAttribute('type', 'text');
+  input.setAttribute('id', 'text-field');
+  input.innerHTML = html;
+  container.appendChild(input);
+};
+addInput();
+
+var addButton = function(parentId, elementTag, elementId, html) {
+
+  var container = document.getElementById('parent');
+  var button = document.createElement('button');
+  button.setAttribute('id', 'submit-button');
+  button.innerHTML = "submit";
+  container.appendChild(button);
+};
+addButton();
+
+var addblogList = function(parentId, elementTag, elementId, html) {
+
+  var container = document.getElementById('parent');
+  var blogList = document.createElement('ul');
+  blogList.setAttribute('id', 'blog-list');
+  blogList.innerHTML = html;
+  container.appendChild(blogList);
+};
+addblogList();
+
+var addblogList1 = function(parentId, elementTag, elementId, html) {
+
+  var container = document.getElementById('blog-list');
+  var blogList1 = document.createElement('li');
+  blogList1.setAttribute('id', 'blog-inner-list');
+  blogList1.innerHTML = html;
+  container.appendChild(blogList1);
+};
+addblogList1()
+
+
+
+
 var test = function() {
 
     var button = document.getElementById('submit-button');
     var textField = document.getElementById('text-field');
     var blogList = document.getElementById('blog-list');
-    var testResult = document.getElementById('testResult');
+    var testResult = document.getElementById('test-result');
 
 
     var success = function () {
