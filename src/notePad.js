@@ -1,14 +1,12 @@
 var newsfeed = document.getElementById('newsfeed')
-
 var getNews = document.getElementById('getNews')
-
 var button = document.getElementById('submit-button');
 var textField = document.getElementById('text-field');
 var blogList = document.getElementById('blog-list');
 var fullNote = document.getElementById("full-note");
 var counter = 1
 var noteList = {}
-var whatever = document.getElementById("note"+)
+// var whatever = document.getElementById("note"+);
 
 
 
@@ -43,20 +41,23 @@ getNews.addEventListener('click', function() {
 
 function renderHTML(data) {
  var htmlString = '';
-htmlString += '<p>' + data.response.results[6].webTitle + '</p>'
- console.log(data.response.results[0].webTitle);
-newsfeed.insertAdjacentHTML('beforeend', htmlString);
+ for (i = 0; i < 5; i++) {
+   htmlString += ' <li>   <a href= ' + data.response.results[i].webUrl + '>'+ data.response.results[i].webTitle +'</a></li>'
+   console.log(data.response.results[i].webTitle);
+ }
+ // newsfeed.insertAdjacentHTML('beforeend', htmlString);
+ newsfeed.innerHTML = htmlString;
 }
 //we want
 // if we click a button on the list of buttons (ie not submit-button) then we want the page
 // to change and only show the full note related to that specific button
-var blah = function(num){
-  fullNote.insertAdjacentHTML("beforeend", noteList["note"+num]);
-}
-
-if(document.getElementById()){
-button.addEventListener("click", blah(button.id //pseudo)
-}
+// var blah = function(num){
+//   fullNote.insertAdjacentHTML("beforeend", noteList["note"+num]);
+// }
+//
+// if(document.getElementById()){
+// button.addEventListener("click", blah(button.id //pseudo)
+// }
 
 
 //   if(noteButton)
