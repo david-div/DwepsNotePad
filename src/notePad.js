@@ -1,11 +1,15 @@
+var newsfeed = document.getElementById('newsfeed')
+
+var getNews = document.getElementById('getNews')
 
 var button = document.getElementById('submit-button');
-var textField = document.getElementById('textField');
+var textField = document.getElementById('text-field');
 var blogList = document.getElementById('blog-list');
 var fullNote = document.getElementById("full-note");
 var counter = 1
 var noteList = {}
 var whatever = document.getElementById("note"+)
+
 
 
 button.addEventListener("click", function(){
@@ -19,14 +23,30 @@ button.addEventListener("click", function(){
 });
 
 shorten = function(string) {
-    if (string.length > 20) {
-        string = string.substr(0,20)+'...';
-        return string
-    } else {
-      return string
-    }
+  if (string.length > 20) {
+    string = string.substr(0, 20) + '...';
+    return string
+  } else {
+    return string
+  }
 };
 
+getNews.addEventListener('click', function() {
+  var ourRequest = new XMLHttpRequest();
+  ourRequest.open('GET', 'https://content.guardianapis.com/search?api-key=c148d976-d913-445c-8148-b46110b280d0');
+  ourRequest.onload = function() {
+    var ourData = JSON.parse(ourRequest.responseText);
+    renderHTML(ourData);
+  };
+  ourRequest.send();
+});
+
+function renderHTML(data) {
+ var htmlString = '';
+htmlString += '<p>' + data.response.results[6].webTitle + '</p>'
+ console.log(data.response.results[0].webTitle);
+newsfeed.insertAdjacentHTML('beforeend', htmlString);
+}
 //we want
 // if we click a button on the list of buttons (ie not submit-button) then we want the page
 // to change and only show the full note related to that specific button

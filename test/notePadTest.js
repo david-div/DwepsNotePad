@@ -1,7 +1,6 @@
 
 var test = function() {
 
-
   var button = document.getElementById('submit-button');
   var textField = document.getElementById('textField');
   var blogList = document.getElementById('blog-list');
@@ -81,6 +80,7 @@ var test = function() {
   };
 
   runTests()
+  
 };
 
 test();
