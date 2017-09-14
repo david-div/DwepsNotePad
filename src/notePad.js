@@ -13,7 +13,7 @@ var noteList = {};
 button.addEventListener("click", function(){
     var string = textField.value
     var shortenedString = shorten(textField.value);
-    var htmlString = '<li><button id="note'+counter+'">'+ shortenedString + '</button></li>';
+    var htmlString = '<li id="note'+counter+'">'+ shortenedString + '</li>';
     noteList["note"+counter] = string;
     blogList.insertAdjacentHTML("beforeend", htmlString);
     textField.value = ''
@@ -32,7 +32,8 @@ shorten = function(string) {
 blogList.addEventListener('click', function(e) {
   if(e.target.id !== 'blog-list') {
     string = e.target.innerHTML
-
+    e.target.innerHTML = noteList[e.target.id]
+    noteList[e.target.id] = string
   }
 });
 
@@ -54,6 +55,10 @@ function renderHTML(data) {
  }
  // newsfeed.insertAdjacentHTML('beforeend', htmlString);
  newsfeed.innerHTML = htmlString;
+}
+
+function resetCounter() {
+  counter = 0
 }
 //we want
 // if we click a button on the list of buttons (ie not submit-button) then we want the page

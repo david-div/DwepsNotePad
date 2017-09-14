@@ -63,10 +63,10 @@ var test = function() {
   };
 
    var addsNewButtonWithId = function(){
+     reset()
      var string = 'any string more than 20 characters'
      inputAndClick(string);
-     document.getElementById('1');
-     console.log(blogList.innerHTML)
+     document.getElementById('note5').click();
      testIfTrue(blogList.innerHTML.includes(string))
    };
 
