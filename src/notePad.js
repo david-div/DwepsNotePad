@@ -1,6 +1,6 @@
 
 var button = document.getElementById('submit-button');
-var textField = document.getElementById('text-field');
+var textField = document.getElementById('textField');
 var blogList = document.getElementById('blog-list');
 var fullNote = document.getElementById("full-note");
 var counter = 1
@@ -17,8 +17,6 @@ button.addEventListener("click", function(){
     textField.value = ''
     counter++
 });
-
-
 
 shorten = function(string) {
     if (string.length > 20) {
