@@ -23,3 +23,12 @@ var addblogList = function(parentId, elementTag, elementId, html) {
   container.appendChild(blogList);
 };
 addblogList();
+
+var addNewsButton = function(parentId, elementTag, elementId, html) {
+  var container = document.getElementById('parent');
+  var newsButton = document.createElement('button');
+  newsButton.setAttribute('id', 'getNews');
+  newsButton.innerHTML = "Refresh Newsfeed";
+  container.appendChild(newsButton);
+};
+addNewsButton();

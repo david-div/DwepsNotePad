@@ -1,7 +1,7 @@
 var newsfeed = document.getElementById('newsfeed');
 var getNews = document.getElementById('getNews');
 var button = document.getElementById('submit-button');
-var textField = document.getElementById('text-field');
+var textField = document.getElementById('textField');
 var blogList = document.getElementById('blog-list');
 var fullNote = document.getElementById("full-note");
 var counter = 1;
@@ -28,6 +28,13 @@ shorten = function(string) {
     return string
   }
 };
+
+blogList.addEventListener('click', function(e) {
+  if(e.target.id !== 'blog-list') {
+    string = e.target.innerHTML
+
+  }
+});
 
 getNews.addEventListener('click', function() {
   var ourRequest = new XMLHttpRequest();
