@@ -1,11 +1,11 @@
-var newsfeed = document.getElementById('newsfeed')
-var getNews = document.getElementById('getNews')
+var newsfeed = document.getElementById('newsfeed');
+var getNews = document.getElementById('getNews');
 var button = document.getElementById('submit-button');
 var textField = document.getElementById('text-field');
 var blogList = document.getElementById('blog-list');
 var fullNote = document.getElementById("full-note");
-var counter = 1
-var noteList = {}
+var counter = 1;
+var noteList = {};
 // var whatever = document.getElementById("note"+);
 
 
@@ -42,7 +42,7 @@ getNews.addEventListener('click', function() {
 function renderHTML(data) {
  var htmlString = '';
  for (i = 0; i < 5; i++) {
-   htmlString += ' <li>   <a href= ' + data.response.results[i].webUrl + '>'+ data.response.results[i].webTitle +'</a></li>'
+   htmlString += '<li> <a href= ' + data.response.results[i].webUrl + '>'+ data.response.results[i].webTitle +'</a></li>'
    console.log(data.response.results[i].webTitle);
  }
  // newsfeed.insertAdjacentHTML('beforeend', htmlString);
