@@ -13,3 +13,9 @@ function removeBloglist(elementId) {
   bloglist.parentNode.removeChild(bloglist);
 }
 removeBloglist();
+
+function removeNewsButton(elementId) {
+  var newsButton = document.getElementById('getNews');
+  newsButton.parentNode.removeChild(newsButton);
+}
+removeNewsButton();

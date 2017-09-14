@@ -9,9 +9,9 @@ var noteList = {};
 // var whatever = document.getElementById("note"+);
 
 
-
 button.addEventListener("click", function(){
     var string = textField.value
+    if (string === '') {return console.log('invalid input')}
     var shortenedString = shorten(textField.value);
     var htmlString = '<li id="note'+counter+'">'+ shortenedString + '</li>';
     noteList["note"+counter] = string;
@@ -32,8 +32,19 @@ shorten = function(string) {
 blogList.addEventListener('click', function(e) {
   if(e.target.id !== 'blog-list') {
     string = e.target.innerHTML
+    fullNote.innerHTML = '<div style="padding: 20px">' + noteList[e.target.id] + '</div>'
+    blogList.style.display = 'none';
+  }
+});
+
+fullNote.addEventListener('click', function(e) {
+  if(e.target.id !== 'blog-list') {
+    string = e.target.innerHTML
     e.target.innerHTML = noteList[e.target.id]
+    fullNote.innerHTML = ''
     noteList[e.target.id] = string
+    blogList.style.display = '';
+
   }
 });
 
@@ -51,7 +62,7 @@ function renderHTML(data) {
  var htmlString = '';
  for (i = 0; i < 5; i++) {
    htmlString += '<li> <a href= ' + data.response.results[i].webUrl + '>'+ data.response.results[i].webTitle +'</a></li>'
-   console.log(data.response.results[i].webTitle);
+  //  console.log(data.response.results[i].webTitle);
  }
  // newsfeed.insertAdjacentHTML('beforeend', htmlString);
  newsfeed.innerHTML = htmlString;
@@ -60,25 +71,5 @@ function renderHTML(data) {
 function resetCounter() {
   counter = 0
 }
-//we want
-// if we click a button on the list of buttons (ie not submit-button) then we want the page
-// to change and only show the full note related to that specific button
-// var blah = function(num){
-//   fullNote.insertAdjacentHTML("beforeend", noteList["note"+num]);
-// }
-//
-// if(document.getElementById()){
-// button.addEventListener("click", blah(button.id //pseudo)
-// }
 
-
-//   if(noteButton)
-//   noteButton.addEventListener("click", function(){
-//   console.log("success");
-//
-//
-// });
-
-
-
-//when list button clicked display value
+getNews.click();

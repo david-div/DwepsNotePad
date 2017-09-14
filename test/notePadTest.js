@@ -5,6 +5,7 @@ var test = function() {
   var textField = document.getElementById('textField');
   var blogList = document.getElementById('blog-list');
   var testResult = document.getElementById('testResult');
+  var fullNote = document.getElementById("full-note");
 
   var success = function () {
     console.log("%cTest passed", 'color:green');
@@ -63,11 +64,17 @@ var test = function() {
   };
 
    var addsNewButtonWithId = function(){
-     reset()
      var string = 'any string more than 20 characters'
      inputAndClick(string);
      document.getElementById('note5').click();
-     testIfTrue(blogList.innerHTML.includes(string))
+     testIfTrue(fullNote.innerHTML.includes(string))
+   };
+
+   var hidesList = function() {
+     var string = 'any string more than 20 characters'
+     inputAndClick(string);
+     document.getElementById('note6').click();
+     testIfTrue(fullNote.innerHTML.includes(string) && blogList.style.display === 'none');
    };
 
   runTests = function() {
@@ -77,6 +84,7 @@ var test = function() {
     textInput();
     abbreviationTest();
     addsNewButtonWithId();
+    hidesList();
   };
 
   runTests()
