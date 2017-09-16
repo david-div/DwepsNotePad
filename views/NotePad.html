@@ -1,27 +1,37 @@
+<div>
+
 <header>
 
-<title>DWEPS Notepad</title>
+    <title class="title">Javascript Notepad</title>
+    <h1>Javascript Notepad</h1>
+
+    <link rel="stylesheet" type="text/css" href="../style.css">
 
 </header>
 
-<div style="text-align: center">
+<body>
 
-<h1>DWEPS Pad</h1>
-<!-- <input type="text" id="textField" placeholder='Type something cool!'> -->
-<textarea rows ='4' cols='50' id='textField' placeholder='Type something cool!' required='required'></textarea>
-<br>
-<button id="submit-button">submit</button>
+    <div style="text-align: center">
 
-<ul id="blog-list"></ul>
+        <h2>Blog post</h2>
+        <textarea rows ='4' cols='50' id='textField' class="inputbox" placeholder='Type something cool!' required='required'></textarea>
+        <br>
+        <button id="submit-button" class="button"><span>Submit</span></button>
 
-<div id="full-note"></div>
+        <ul id="blog-list" class="center"></ul>
 
-<h3>Newsfeed</h3>
-<ol id='newsfeed'></ol>
+        <div id="full-note" class="full-note" style="display: none;"></div>
 
-<button id="getNews">Refresh Newsfeed</button>
+        <h2 style="padding-top: 50px">Newsfeed</h2>
 
+        <ol id='newsfeed' class="center"></ol>
 
-<script src="../src/notePad.js"></script>
+        <button id="getNews" class="button"><span>Refresh Newsfeed</span></button>
+
+        <script src="../src/notePad.js"></script>
+
+    </div>
+
+</body>
 
 </div>

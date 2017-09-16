@@ -10,13 +10,13 @@ var noteList = {};
 
 
 button.addEventListener("click", function(){
-    var string = textField.value
+    var string = textField.value;
     if (string === '') {return console.log('invalid input')}
     var shortenedString = shorten(textField.value);
     var htmlString = '<li id="note'+counter+'">'+ shortenedString + '</li>';
     noteList["note"+counter] = string;
     blogList.insertAdjacentHTML("beforeend", htmlString);
-    textField.value = ''
+    textField.value = '';
     counter++
 });
 
@@ -31,20 +31,21 @@ shorten = function(string) {
 
 blogList.addEventListener('click', function(e) {
   if(e.target.id !== 'blog-list') {
-    string = e.target.innerHTML
-    fullNote.innerHTML = '<div style="padding: 20px">' + noteList[e.target.id] + '</div>'
+    string = e.target.innerHTML;
+    fullNote.innerHTML = '<div style="padding: 20px">' + noteList[e.target.id] + '</div>';
     blogList.style.display = 'none';
+    fullNote.style.display = '';
   }
 });
 
 fullNote.addEventListener('click', function(e) {
   if(e.target.id !== 'blog-list') {
-    string = e.target.innerHTML
-    e.target.innerHTML = noteList[e.target.id]
-    fullNote.innerHTML = ''
-    noteList[e.target.id] = string
+    string = e.target.innerHTML;
+    e.target.innerHTML = noteList[e.target.id];
+    fullNote.innerHTML = '';
+    noteList[e.target.id] = string;
     blogList.style.display = '';
-
+    fullNote.style.display = 'none';
   }
 });
 
@@ -61,10 +62,8 @@ getNews.addEventListener('click', function() {
 function renderHTML(data) {
  var htmlString = '';
  for (i = 0; i < 5; i++) {
-   htmlString += '<li> <a href= ' + data.response.results[i].webUrl + '>'+ data.response.results[i].webTitle +'</a></li>'
-  //  console.log(data.response.results[i].webTitle);
+   htmlString += '<li><a href= ' + data.response.results[i].webUrl + '>'+ data.response.results[i].webTitle +'</a></li>'
  }
- // newsfeed.insertAdjacentHTML('beforeend', htmlString);
  newsfeed.innerHTML = htmlString;
 }
 
