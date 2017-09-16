@@ -1,17 +1,37 @@
+<div>
 
-<input type="text" id="text-field">
+<header>
 
-<button id="submit-button">submit</button>
+    <title class="title">Javascript Notepad</title>
+    <h1>Javascript Notepad</h1>
 
-<ul id="blog-list"></ul>
+    <link rel="stylesheet" type="text/css" href="../style.css">
 
-<br>
-<br>
-<br>
-<br>
-<br>
+</header>
 
-<ul id='test-result'></ul>
+<body>
 
-<script src="../src/notePad.js"></script>
-<script src="../test/notePadTest.js"></script>
+    <div style="text-align: center">
+
+        <h2>Blog post</h2>
+        <textarea rows ='4' cols='50' id='textField' class="inputbox" placeholder='Type something cool!' required='required'></textarea>
+        <br>
+        <button id="submit-button" class="button"><span>Submit</span></button>
+
+        <ul id="blog-list" class="center"></ul>
+
+        <div id="full-note" class="full-note" style="display: none;"></div>
+
+        <h2 style="padding-top: 50px">Newsfeed</h2>
+
+        <ol id='newsfeed' class="center"></ol>
+
+        <button id="getNews" class="button"><span>Refresh Newsfeed</span></button>
+
+        <script src="../src/notePad.js"></script>
+
+    </div>
+
+</body>
+
+</div>
