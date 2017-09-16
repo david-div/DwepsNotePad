@@ -14,8 +14,20 @@ function removeBloglist(elementId) {
 }
 removeBloglist();
 
+function removeFullNote(elementId) {
+  var fullNote = document.getElementById('full-note');
+  fullNote.parentNode.removeChild(fullNote);
+}
+removeFullNote();
+
 function removeNewsButton(elementId) {
   var newsButton = document.getElementById('getNews');
   newsButton.parentNode.removeChild(newsButton);
 }
 removeNewsButton();
+
+function removeNewsList(elementId) {
+  var newsList = document.getElementById('newsfeed');
+  newsList.parentNode.removeChild(newsList);
+}
+removeNewsList();
