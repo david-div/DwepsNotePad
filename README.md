@@ -15,6 +15,9 @@ $ npm install
 ```
 
 Viewing
+--------
+
+Start the server with ```http-server``` and navigate to http://localhost:8080/views/NotePad.html in your browser.
 
 
 
